@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -12,13 +14,31 @@
 
     <title>TAGxCHAIN</title>
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+    {% block stylesheet %}
+    {% endblock stylesheet %}
 </head>
 
 <body>
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
 
-    {% block content %}
-    {% endblock content %}
+                {% include 'components/helpers/sidebar.html' %}
+            </div>
+            <div class="col-sm-10">
+
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
