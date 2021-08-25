@@ -2,7 +2,15 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request, 'core/home.html')
+    overview_symbols = [
+        "NASDAQ:AAPL",
+        "FX:EURUSD",
+        "BITSTAMP:BTCUSD"
+    ]
+    context = {
+        'overview_symbols': overview_symbols
+    }
+    return render(request, 'core/home.html', context)
 
 
 def about(request):
