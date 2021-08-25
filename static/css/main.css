@@ -39,6 +39,10 @@ a {
     background-color: var(--primary-2)!important;
 }
 
+.back-prussian-blue {
+    background-color: var(--prussian-blue)!important;
+}
+
 
 /* Common Classes */
 

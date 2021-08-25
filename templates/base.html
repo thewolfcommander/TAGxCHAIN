@@ -42,7 +42,7 @@
 
                         {% include 'components/helpers/search-bar.html' %}
                     </div>
-                    <div class="col-sm-12 ">
+                    <div class="col-sm-12" style="overflow-y: scroll; height: 90vh;">
 
                         {% block content %}
                         {% endblock content %}
@@ -54,6 +54,7 @@
             </div>
         </div>
     </div>
+    {% include 'components/helpers/footer.html' %}
 
 
     <!-- Optional JavaScript; choose one of the two! -->
