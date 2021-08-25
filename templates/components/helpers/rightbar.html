@@ -5,14 +5,23 @@
 
 <div class="col-sm-12 rightbar">
     <div class="row">
-        <!-- Economic Calendar -->
+        <!-- Market Movers -->
         <div class="col-sm-12 mt-2">
+            <p class="fs-5">Market Movers</p>
+            {% include 'components/widgets/market-movers.html' %}
+        </div>
+
+        <!-- Economic Calendar -->
+        <div class="col-sm-12 mt-4">
             <p class="fs-5">Economic Calendar</p>
             {% include 'components/widgets/economic-calendar.html' %}
         </div>
 
         <!-- Timeline -->
+        <div class="col-sm-12 mt-4">
+            <p class="fs-5">Timeline</p>
+            {% include 'components/widgets/timeline.html' %}
+        </div>
 
-        <!-- Screeners -->
     </div>
 </div>
