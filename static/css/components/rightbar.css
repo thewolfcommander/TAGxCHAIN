@@ -1,0 +1,12 @@
+.rightbar {
+    overflow-y: scroll;
+    background-color: var(--prussian-blue);
+    color: var(--ivory);
+    margin: 0!important;
+    padding: 10px 15px;
+    min-height: 100vh;
+}
+
+.col-sm-3 {
+    padding-right: 0!important;
+}

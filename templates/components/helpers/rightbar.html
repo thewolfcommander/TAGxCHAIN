@@ -1,0 +1,18 @@
+{% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/components/rightbar.css' %}">
+{% endblock stylesheet %}
+
+<div class="col-sm-12 rightbar">
+    <div class="row">
+        <!-- Economic Calendar -->
+        <div class="col-sm-12 mt-2">
+            <p class="fs-5">Economic Calendar</p>
+            {% include 'components/widgets/economic-calendar.html' %}
+        </div>
+
+        <!-- Timeline -->
+
+        <!-- Screeners -->
+    </div>
+</div>
