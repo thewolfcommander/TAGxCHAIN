@@ -58,8 +58,15 @@
 
         <li class="header">Analysis</li>
         <li>
-            <a href="{% url 'core:analysis_ticker' %}">
-                <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticker
+            <a href="{% url 'core:analysis_market_quotes' %}">
+                <i class="fa fa-funnel-dollar" aria-hidden="true"></i> Market Quotes
+            </a>
+        </li>
+
+        <li class="header">Fundamentals</li>
+        <li>
+            <a href="{% url 'core:fundamental_analysis' %}">
+                <i class="fa fa-chart-bar" aria-hidden="true"></i> Quote Overview
             </a>
         </li>
     </ul>

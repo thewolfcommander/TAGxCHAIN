@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from core.models import Exchange
 
 # Create your views here.
 def home(request):
@@ -49,9 +50,31 @@ def stock_screener(request):
 
 
 # Analysis
-def analysis_ticker(request):
+def analysis_market_quotes(request):
     """
-    View for handling ticker
+    View for handling market quotes
     """
-    page_title = "Ticker"
-    return render(request, 'core/analysis/analysis_ticker.html', {'page_title': page_title})
+    page_title = "Market Quotes"
+    return render(request, 'core/analysis/analysis_market_quotes.html', {'page_title': page_title})
+
+def fundamental_analysis(request):
+    """
+    View for handling fundamental analysis
+    """
+    page_title = "Fundamental Analysis"
+    symbol = request.GET.get('symbol', None)
+    exchange = request.GET.get('exchange', None)
+    if symbol is None and exchange is None:
+        symbol = 'AAPL'
+        exchange = 'NASDAQ'
+    else:
+        symbol = symbol.upper()
+        exchange = exchange.upper()
+    exchange_list = Exchange.objects.filter(name=exchange)
+    exchange_list_all = Exchange.objects.all()
+    print(exchange_list_all)
+    if exchange_list.exists():
+        context = {'page_title': page_title, 'symbol': symbol, 'exchange': exchange, 'exchanges': exchange_list_all}
+    else:
+        context = {'page_title': page_title, 'symbol': "RELIANCE", 'exchange': "NSE", 'message': "WRONG Exchange Selected", 'exchanges': exchange_list_all}
+    return render(request, 'core/analysis/fundamental_analysis.html', context)

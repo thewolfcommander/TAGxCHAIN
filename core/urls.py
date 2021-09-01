@@ -17,5 +17,6 @@ urlpatterns = [
     path('screener/stocks/', stock_screener, name='stock_screener'),
 
     # Analysis Urls
-    path('analysis/ticker/', analysis_ticker, name='analysis_ticker'),
+    path('analysis/market-quotes/', analysis_market_quotes, name='analysis_market_quotes'),
+    path('analysis/fundamental-analysis/', fundamental_analysis, name='fundamental_analysis'),
 ]
