@@ -10,10 +10,15 @@
         </h1>
     </div>
     <ul class="sidebar-navigation">
-        <li class="header">Logged in as</li>
+        <li class="header">Account</li>
         <li>
             <a href="{% url 'accounts:my_account' %}">
                 <i class="fa fa-user" aria-hidden="true"></i> {{ request.user.username.upper }}
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:logout' %}">
+                <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
             </a>
         </li>
         <li class="header">System</li>

@@ -13,7 +13,7 @@ def logout(request):
     View for handling logout requests
     """
     auth_logout(request)
-    return redirect('core:home')
+    return redirect('accounts:login')
 
 
 def login(request):
@@ -64,7 +64,7 @@ def register(request):
     }
     return render(request, 'accounts/register.html', context=context)
 
-
+@login_required
 def my_account(request):
     """
     View for handling my account
