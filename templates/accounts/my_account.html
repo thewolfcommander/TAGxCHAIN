@@ -12,7 +12,7 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
             <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
             <li class="breadcrumb-item active" aria-current="page">User Profile</li>
           </ol>
@@ -21,20 +21,20 @@
   
         <div class="row gutters-sm">
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card back-ivory text-primary-2">
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                   <div class="mt-3">
-                    <h4>John Doe</h4>
-                    <p class="text-secondary mb-1">Full Stack Developer</p>
+                    <h5 class="text-primary-2">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+                    <p class="text-secondary mb-1">Trader</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-8">
-            <div class="card mb-3">
+            <div class="card mb-3 back-ivory text-primary-2">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-3">
@@ -62,7 +62,7 @@
                     {{ request.user.username }}
                   </div>
                 </div>
-                <hr>
+                <!-- <hr>
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Mobile</h6>
@@ -79,11 +79,11 @@
                   <div class="col-sm-9 text-secondary">
                     Bay Area, San Francisco, CA
                   </div>
-                </div>
+                </div> -->
                 <hr>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a class="btn btn-info text-ivory" target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    <a class="btn btn-info text-ivory" target="__blank" href="#">Edit</a>
                   </div>
                 </div>
               </div>
@@ -91,84 +91,34 @@
 
             <div class="row gutters-sm">
               <div class="col-sm-12 mb-3">
-                <div class="card h-100">
+                <div class="card h-100 text-primary-2 back-ivory">
                   <div class="card-body">
                     <h6 class="d-flex align-items-center mb-3"><i class="fas fa-briefcase me-2"></i> Stocks Portfolio</h6>
-                    <small>Web Design</small>
+                    <!-- <small>Web Design</small>
                     <div class="progress mb-3" style="height: 5px">
                       <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Website Markup</small>
+                    </div> -->
+                    <!-- <small>Website Markup</small>
                     <div class="progress mb-3" style="height: 5px">
                       <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>One Page</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Mobile Template</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Backend API</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
               <div class="col-sm-12 mb-3">
-                <div class="card h-100">
+                <div class="card h-100 text-primary-2 back-ivory">
                   <div class="card-body">
                     <h6 class="d-flex align-items-center mb-3"> <i class="fas fa-briefcase me-2"></i> Crypto Portfolio</h6>
-                    <small>Web Design</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Website Markup</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>One Page</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Mobile Template</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Backend API</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
 
               <div class="col-sm-12 mb-3">
-                <div class="card h-100">
+                <div class="card h-100 text-primary-2 back-ivory">
                   <div class="card-body">
                     <h6 class="d-flex align-items-center mb-3"> <i class="fas fa-briefcase me-2"></i> Derivatives Portfolio</h6>
-                    <small>Web Design</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Website Markup</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>One Page</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Mobile Template</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Backend API</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>

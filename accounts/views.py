@@ -32,7 +32,7 @@ def login(request):
                 redirect_path = request.GET.get('next', '/')
                 return redirect(redirect_path)
             else:
-                messages.error(request,"Invalid username or password.")
+                messages.error(request,"You are not registered.")
         else:
             messages.error(request,"Invalid username or password.")
     form = LoginForm()

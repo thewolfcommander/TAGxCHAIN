@@ -9,14 +9,9 @@ class LoginForm(AuthenticationForm):
     """
     Form for handling logging in
     """
-    username = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-    password = forms.CharField(required=True, label="Password", widget=forms.PasswordInput(attrs={'placeholder': 'Enter password'}))
 
     class Meta:
         model = User
-        fields = [
-            'username',
-        ]
 
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
