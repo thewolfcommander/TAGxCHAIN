@@ -12,7 +12,7 @@
     <ul class="sidebar-navigation">
         <li class="header">Logged in as</li>
         <li>
-            <a href="{% url 'core:home' %}">
+            <a href="{% url 'accounts:my_account' %}">
                 <i class="fa fa-user" aria-hidden="true"></i> {{ request.user.username.upper }}
             </a>
         </li>

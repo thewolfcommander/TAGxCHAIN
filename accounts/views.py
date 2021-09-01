@@ -63,3 +63,10 @@ def register(request):
         'form': form
     }
     return render(request, 'accounts/register.html', context=context)
+
+
+def my_account(request):
+    """
+    View for handling my account
+    """
+    return render(request, 'accounts/my_account.html')
