@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Third Party apps
     'widget_tweaks',
     'crispy_forms',
+    'import_export',
 
     'accounts',
     'core'
