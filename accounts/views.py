@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
+from .models import TradingAccount
 
 
 def logout(request):
@@ -48,6 +49,13 @@ def register(request):
             user = form.save()
             auth_login(request, user)
             messages.success(request, "Registration successful." )
+            try:
+                trading_account = TradingAccount.objects.create(
+                    user=user
+                )
+            except Exception as e:
+                print(e)
+                messages.error(request, e)
             return redirect("core:home")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
