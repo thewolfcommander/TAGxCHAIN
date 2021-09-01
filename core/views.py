@@ -92,3 +92,10 @@ def forex_cross_rates(request):
     """
     page_title = "Forex Cross Rates"
     return render(request, 'core/analysis/forex_cross_rates.html', {'page_title': page_title})
+
+def forex_heat_map(request):
+    """
+    View for handling technical chart
+    """
+    page_title = "Forex Heat Map"
+    return render(request, 'core/analysis/forex_heat_map.html', {'page_title': page_title})
