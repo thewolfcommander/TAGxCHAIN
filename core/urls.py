@@ -23,4 +23,5 @@ urlpatterns = [
     path('analysis/forex-heat-map/', forex_heat_map, name='forex_heat_map'),
     path('analysis/symbol-overview/', symbol_overview, name='symbol_overview'),
     path('analysis/technical-chart/', technical_chart, name='technical_chart'),
+    path('analysis/technical-analysis/', technical_analysis, name='technical_analysis'),
 ]

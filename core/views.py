@@ -121,3 +121,26 @@ def symbol_overview(request):
     else:
         context = {'page_title': page_title, 'symbol': "RELIANCE", 'exchange': "NSE", 'message': "WRONG Exchange Selected", 'exchanges': exchange_list_all}
     return render(request, 'core/analysis/symbol_overview.html', context)
+
+
+def technical_analysis(request):
+    """
+    View for handling technical analysis
+    """
+    page_title = "Technical Analysis"
+    symbol = request.GET.get('symbol', None)
+    exchange = request.GET.get('exchange', None)
+    if symbol is None and exchange is None:
+        symbol = 'AAPL'
+        exchange = 'NASDAQ'
+    else:
+        symbol = symbol.upper()
+        exchange = exchange.upper()
+    exchange_list = Exchange.objects.filter(name=exchange)
+    exchange_list_all = Exchange.objects.all()
+    print(exchange_list_all)
+    if exchange_list.exists():
+        context = {'page_title': page_title, 'symbol': symbol, 'exchange': exchange, 'exchanges': exchange_list_all}
+    else:
+        context = {'page_title': page_title, 'symbol': "RELIANCE", 'exchange': "NSE", 'message': "WRONG Exchange Selected", 'exchanges': exchange_list_all}
+    return render(request, 'core/analysis/technical_analysis.html', context)
