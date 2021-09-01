@@ -99,3 +99,25 @@ def forex_heat_map(request):
     """
     page_title = "Forex Heat Map"
     return render(request, 'core/analysis/forex_heat_map.html', {'page_title': page_title})
+
+def symbol_overview(request):
+    """
+    View for handling technical chart
+    """
+    page_title = "Symbol Overview"
+    symbol = request.GET.get('symbol', None)
+    exchange = request.GET.get('exchange', None)
+    if symbol is None and exchange is None:
+        symbol = 'AAPL'
+        exchange = 'NASDAQ'
+    else:
+        symbol = symbol.upper()
+        exchange = exchange.upper()
+    exchange_list = Exchange.objects.filter(name=exchange)
+    exchange_list_all = Exchange.objects.all()
+    print(exchange_list_all)
+    if exchange_list.exists():
+        context = {'page_title': page_title, 'symbol': symbol, 'exchange': exchange, 'exchanges': exchange_list_all}
+    else:
+        context = {'page_title': page_title, 'symbol': "RELIANCE", 'exchange': "NSE", 'message': "WRONG Exchange Selected", 'exchanges': exchange_list_all}
+    return render(request, 'core/analysis/symbol_overview.html', context)

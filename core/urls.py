@@ -21,5 +21,6 @@ urlpatterns = [
     path('analysis/fundamental-analysis/', fundamental_analysis, name='fundamental_analysis'),
     path('analysis/forex-cross-rates/', forex_cross_rates, name='forex_cross_rates'),
     path('analysis/forex-heat-map/', forex_heat_map, name='forex_heat_map'),
+    path('analysis/symbol-overview/', symbol_overview, name='symbol_overview'),
     path('analysis/technical-chart/', technical_chart, name='technical_chart'),
 ]
