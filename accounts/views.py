@@ -48,7 +48,7 @@ def register(request):
             user = form.save()
             auth_login(request, user)
             messages.success(request, "Registration successful." )
-            return redirect("accounts:create_bidder_profile")
+            return redirect("core:home")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     context = {
