@@ -78,3 +78,10 @@ def fundamental_analysis(request):
     else:
         context = {'page_title': page_title, 'symbol': "RELIANCE", 'exchange': "NSE", 'message': "WRONG Exchange Selected", 'exchanges': exchange_list_all}
     return render(request, 'core/analysis/fundamental_analysis.html', context)
+
+def technical_chart(request):
+    """
+    View for handling technical chart
+    """
+    page_title = "Technical Chart"
+    return render(request, 'core/analysis/technical_chart.html', {'page_title': page_title})
