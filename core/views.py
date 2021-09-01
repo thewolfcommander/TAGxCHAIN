@@ -85,3 +85,10 @@ def technical_chart(request):
     """
     page_title = "Technical Chart"
     return render(request, 'core/analysis/technical_chart.html', {'page_title': page_title})
+
+def forex_cross_rates(request):
+    """
+    View for handling technical chart
+    """
+    page_title = "Forex Cross Rates"
+    return render(request, 'core/analysis/forex_cross_rates.html', {'page_title': page_title})

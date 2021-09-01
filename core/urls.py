@@ -19,5 +19,6 @@ urlpatterns = [
     # Analysis Urls
     path('analysis/market-quotes/', analysis_market_quotes, name='analysis_market_quotes'),
     path('analysis/fundamental-analysis/', fundamental_analysis, name='fundamental_analysis'),
+    path('analysis/forex-cross-rates/', forex_cross_rates, name='forex_cross_rates'),
     path('analysis/technical-chart/', technical_chart, name='technical_chart'),
 ]
