@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="container">
+
+    <h3 class="mt-3 mb-3">{{ page_title }}</h3>
+    {% include 'components/widgets/screener.html' with screener_type="stock" %}
+
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
