@@ -43,3 +43,16 @@ class Exchange(models.Model):
 
     def __str__(self):
         return self.name
+
+    
+class Scripts(models.Model):
+    """
+    Model for handling the scripts for tagxchain platform
+    """
+    name = models.CharField(max_length=255, null=True, blank=True)
+    symbol = models.CharField(max_length=255, null=True, blank=True)
+    exchange = models.ForeignKey(Exchange, on_delete=models.CASCADE)
+    created_timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
