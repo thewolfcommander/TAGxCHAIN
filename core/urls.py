@@ -11,8 +11,11 @@ urlpatterns = [
     path('miscellaneous/contact/', contact, name='contact'),
     path('miscellaneous/support/', support, name='support'),
 
+    # Screener Urls
+    path('screener/crypto/', crypto_screener, name='crypto_screener'),
+    path('screener/forex/', forex_screener, name='forex_screener'),
+    path('screener/stocks/', stock_screener, name='stock_screener'),
+
     # Analysis Urls
-    path('analysis/screener/crypto/', crypto_screener, name='crypto_screener'),
-    path('analysis/screener/forex/', forex_screener, name='forex_screener'),
-    path('analysis/screener/stocks/', stock_screener, name='stock_screener'),
+    path('analysis/ticker/', analysis_ticker, name='analysis_ticker'),
 ]

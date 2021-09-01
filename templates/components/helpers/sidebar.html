@@ -39,7 +39,7 @@
             </a>
         </li>
 
-        <li class="header">Analysis</li>
+        <li class="header">Screeners</li>
         <li>
             <a href="{% url 'core:crypto_screener' %}">
                 <i class="fab fa-bitcoin" aria-hidden="true"></i> Crypro Screener
@@ -53,6 +53,13 @@
         <li>
             <a href="{% url 'core:stock_screener' %}">
                 <i class="fas fa-chart-line" aria-hidden="true"></i> Stock Screener
+            </a>
+        </li>
+
+        <li class="header">Analysis</li>
+        <li>
+            <a href="{% url 'core:analysis_ticker' %}">
+                <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticker
             </a>
         </li>
     </ul>

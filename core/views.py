@@ -24,6 +24,7 @@ def contact(request):
 def support(request):
     return render(request, 'core/miscellaneous/support.html')
 
+# Screeners
 
 def crypto_screener(request):
     """
@@ -45,3 +46,12 @@ def stock_screener(request):
     """
     page_title = "Stock Screener"
     return render(request, 'core/analysis/stock_screener.html', {'page_title': page_title})
+
+
+# Analysis
+def analysis_ticker(request):
+    """
+    View for handling ticker
+    """
+    page_title = "Ticker"
+    return render(request, 'core/analysis/analysis_ticker.html', {'page_title': page_title})
