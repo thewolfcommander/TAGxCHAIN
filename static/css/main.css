@@ -23,6 +23,18 @@ a {
     --twitter: #4099ff;
 }
 
+/* body {
+    background-color: var(--prussian-blue);
+} */
+
+.text-ivory {
+    color: var(--ivory) !important;
+}
+
+.back-ivory {
+    background-color: var(--ivory) !important;
+}
+
 .text-primary {
     color: var(--primary)!important;
 }
