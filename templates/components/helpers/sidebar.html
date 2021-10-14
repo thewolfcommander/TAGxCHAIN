@@ -21,16 +21,23 @@
                 <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
             </a>
         </li>
+        <li class="header">SYSTEM</li>
+
         <li>
             <a href="{% url 'core:home' %}">
                 <i class="fa fa-home" aria-hidden="true"></i> Home
             </a>
         </li>
 
-        <li class="header">Trades</li>
+        <li class="header">Trade Management</li>
         <li>
-            <a href="{% url 'core:home' %}">
-                <i class="fa fa-home" aria-hidden="true"></i> Manage Trades
+            <a href="{% url 'trades:trades_overview' %}">
+                <i class="fa fa-chart-line" aria-hidden="true"></i> Trades Overview
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'trades:add_trade' %}">
+                <i class="fa fa-project-diagram" aria-hidden="true"></i> Add Trade
             </a>
         </li>
         <li class="header">Miscellaneous</li>
