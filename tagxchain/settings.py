@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'import_export',
 
     'accounts',
-    'core'
+    'core',
+    'trades',
 ]
 
 MIDDLEWARE = [
