@@ -1,5 +1,8 @@
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import pre_save
 
 # Create your models here.
 class TradingDay(models.Model):
@@ -11,7 +14,7 @@ class TradingDay(models.Model):
     day = models.CharField(null=True, blank=True, max_length=20, help_text="Day on which User Traded")
     
     profit_n_loss = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Profit/Loss")
-    charges = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Broker Charges etc.")
+    charges = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Broker Charges etc.", null=True)
     net_profit_n_loss = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Net Profit/Loss after Charges")
     remarks = models.TextField(null=True, blank=True)
 
@@ -63,3 +66,34 @@ class TradingDayTrade(models.Model):
 
     def __str__(self):
         return f"{str(self.id)}-{str(self.trading_day.id)}-{str(self.trading_day.user)}"
+
+    
+def trading_day_receiver(sender, instance, *args, **kwargs):
+    if not instance.day:
+        now = datetime.datetime.now()
+        instance.day = now.strftime("%A")
+
+    if instance.profit_n_loss and instance.charges:
+        instance.net_profit_n_loss = instance.profit_n_loss - instance.charges
+    else:
+        instance.net_profit_n_loss = instance.profit_n_loss
+
+    if instance.tradingdaytrade_set.all().count() > 0:
+        instance.profit_n_loss = 0
+        for trade in instance.tradingdaytrade_set.all():
+            instance.profit_n_loss = instance.profit_n_loss + trade.profit_n_loss
+        if instance.profit_n_loss < 0:
+            instance.is_profit = False
+
+
+def trading_day_trade_receiver(sender, instance, *args, **kwargs):
+    instance.profit_n_loss = instance.quantity*(instance.sell_price-instance.buy_price)
+
+    if instance.profit_n_loss < 0:
+        instance.is_profit = False
+
+    
+
+
+pre_save.connect(trading_day_receiver, sender=TradingDay)
+pre_save.connect(trading_day_trade_receiver, sender=TradingDayTrade)

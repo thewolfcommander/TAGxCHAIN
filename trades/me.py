@@ -1,0 +1,4 @@
+string = "Trade+Bhot+acchi+thi...+Suba+suba+bhot+bhaga+aur+jb+tk+mai+utha+volatility+kafi+km+ho+chuki+thi...+mene+ek+dm+se+price+action+analyse+kia+aur+mere+levels+ke+kafi+aspas+tha...+mene+thoda+analyse+kia+to+dekha+ki+ye+accha+khasa+support+le+rha+tha+594.70+par+jo+ki+meri+kal+ki+support+line+thi+to+mene+ek+position+li...+aur+stop+loss+day+ke+low+ke+niche+rkha...+fr+target+day+ka+high+leke+chl+rha+tha+but+uss+time+tak+demand+itni+nhi+thi+to+bas+pure+din+consolidate+hota+rha...+fr+mere+ek+resistance+ki+line+bna+rkhi+thi+vo+2+bar+vha+tk+jake+vaps+aya...+aur+muje+probability+lgi+ki+agr+iske+upr+jata+hai+tbi+target+achieve+hoga...+fr+jb+next+time+vha+gya+mene+exit+kr+dia...+profit+hua...+but+mja+aya...+chota+ar+safe+sa+trade+tha...+sikhne+ke+liye+best."
+
+man = string.replace('+', ' ')
+print(man)
