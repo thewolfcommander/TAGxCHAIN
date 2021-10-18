@@ -20,6 +20,8 @@ class TradingDayForm(forms.ModelForm):
             'charges',
             'remarks',
             'profit_n_loss',
+            'amount_used',
+            'is_front',
         ]
 
     def __init__(self, *args, **kwargs):

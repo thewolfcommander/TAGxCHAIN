@@ -16,9 +16,12 @@ class TradingDay(models.Model):
     profit_n_loss = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Profit/Loss")
     charges = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Broker Charges etc.", null=True)
     net_profit_n_loss = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Net Profit/Loss after Charges")
+    amount_used = models.DecimalField(default=0.00, max_digits=20, decimal_places=2, help_text="Trading amount used")
+    pnl_percentage = models.DecimalField(default=0.00, max_digits=5, decimal_places=2, help_text="Percentage of Profit and loss")
     remarks = models.TextField(null=True, blank=True)
 
     is_active = models.BooleanField(default=False, help_text="Active only in Swing Trades")
+    is_front = models.BooleanField(default=True, help_text="If true, it means trades done after development of this platform.")
     is_profit = models.BooleanField(default=True)
 
     created_timestamp = models.DateTimeField(auto_now_add=True)
@@ -84,6 +87,9 @@ def trading_day_receiver(sender, instance, *args, **kwargs):
             instance.profit_n_loss = instance.profit_n_loss + trade.profit_n_loss
         if instance.profit_n_loss < 0:
             instance.is_profit = False
+
+    if instance.amount_used:
+        instance.pnl_percentage = (instance.net_profit_n_loss/instance.amount_used)*100
 
 
 def trading_day_trade_receiver(sender, instance, *args, **kwargs):

@@ -1,0 +1,184 @@
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-md-12 col-xl-12">
+        <div class="card proj-progress-card">
+          <div class="card-block">
+            <div class="row">
+              <div class="col-xl-3 col-md-6">
+                <h6>No of Trades (Total Capital)</h6>
+                <h5 class="m-b-30 f-w-700">
+                  {{ stats.trade_count }}<span class="text-c-green m-l-10">({{ request.user.tradingaccount.real_money }}) </span>
+                </h5>
+                <div class="progress">
+                  <div class="progress-bar bg-c-green" style="width: {{ request.user.tradingaccount.growth_percent }}%"></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <h6>Total P/L</h6>
+                <h5 class="m-b-30 f-w-700">
+                  {{ stats.total_pnl }}{% if stats.total_pnl > 0 %}<span class="text-c-green m-l-10"> +{{ stats.total_per }}%</span>{% else %}<span class="text-c-red m-l-10"> -{{ stats.total_per }}%</span>{% endif %}
+                </h5>
+                <div class="progress">
+                  <div class="progress-bar {% if stats.total_pnl > 0 %}bg-c-green{% else %}bg-c-red{% endif %}" style="width: {{ stats.total_per }}%"></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <h6>Total Capital (Me)</h6>
+                <h5 class="m-b-30 f-w-700">
+                  {{ request.user.tradingaccount.capital_monu_final }}<span class="text-c-green m-l-10">+{{ request.user.tradingaccount.growth_percent_monu }}%</span>
+                </h5>
+                <div class="progress">
+                  <div class="progress-bar bg-c-green" style="width: {{ request.user.tradingaccount.growth_percent_monu }}%"></div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <h6>Total Capital (Sim)</h6>
+                <h5 class="m-b-30 f-w-700">
+                  {{ request.user.tradingaccount.capital_sim_final }}<span class="text-c-green m-l-10">+{{ request.user.tradingaccount.growth_percent_sim }}%</span>
+                </h5>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-c-green"
+                    style="width: {{ request.user.tradingaccount.growth_percent_sim }}%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+    .stretch-card >.card {
+    width: 100%;
+    min-width: 100%
+}
+.flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+.padding {
+    padding: 3rem
+}
+
+.card {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #3da5ff;
+    border-radius: 0;
+}
+
+.card .card-block {
+    padding: 1.25rem
+}
+
+h6 {
+    font-size: 16px !important
+}
+
+.text-c-green {
+    color: #2ed8b6
+}
+
+.m-l-10 {
+    margin-left: 10px
+}
+
+.proj-progress-card .progress {
+    height: 6px;
+    overflow: visible;
+    margin-bottom: 10px
+}
+
+.proj-progress-card .progress .progress-bar {
+    position: relative
+}
+
+.progress .progress-bar {
+    height: 100%;
+    color: inherit
+}
+
+.bg-c-red {
+    background: #FF5370
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-red:after {
+    border: 3px solid #FF5370
+}
+
+.proj-progress-card .progress .progress-bar:after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px
+}
+
+.bg-c-blue {
+    background: #4099ff
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-blue:after {
+    border: 3px solid #4099ff
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-green:after {
+    border: 3px solid #2ed8b6
+}
+
+.bg-c-green {
+    background: #2ed8b6
+}
+
+.bg-c-yellow {
+    background: #FFB64D
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-yellow:after {
+    border: 3px solid #FFB64D
+}
+
+.m-b-30 {
+    margin-bottom: 30px
+}
+
+.text-c-red {
+    color: #FF5370
+}
+</style>

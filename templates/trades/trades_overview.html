@@ -1,5 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'trades.html' %} 
 
 {% block content %}
-
+{% include 'components/trades/overview_card.html' with stats=stats %}
+{% include 'components/trades/trades_list.html' with trades=trades %}
 {% endblock content %}
+
+
+{% block stylesheet %}
+{% endblock stylesheet %}
