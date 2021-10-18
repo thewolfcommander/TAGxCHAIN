@@ -40,6 +40,83 @@
                 <i class="fa fa-project-diagram" aria-hidden="true"></i> Add Trade
             </a>
         </li>
+
+        {% if request.user.platformsettingsenabled.screeners %}<li class="header">Screeners</li>{% endif %}
+        {% if request.user.platformsettingsenabled.crypto_screener_enabled %}
+        <li>
+            <a href="{% url 'core:crypto_screener' %}">
+                <i class="fab fa-bitcoin" aria-hidden="true"></i> Crypro Screener
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.forex_screener_enabled %}
+        <li>
+            <a href="{% url 'core:forex_screener' %}">
+                <i class="fa fa-dollar-sign" aria-hidden="true"></i> Forex Screener
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.forex_screener_enabled %}
+        <li>
+            <a href="{% url 'core:stock_screener' %}">
+                <i class="fas fa-chart-line" aria-hidden="true"></i> Stock Screener
+            </a>
+        </li>
+        {% endif %}
+
+        {% if request.user.platformsettingsenabled.analysis %}<li class="header">Analysis</li>{% endif %}
+        {% if request.user.platformsettingsenabled.market_quotes_enabled %}
+        <li>
+            <a href="{% url 'core:analysis_market_quotes' %}">
+                <i class="fa fa-funnel-dollar" aria-hidden="true"></i> Market Quotes
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.symbol_overview_enabled %}
+        <li>
+            <a href="{% url 'core:symbol_overview' %}">
+                <i class="fa fa-cubes" aria-hidden="true"></i> Symbol Overview
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.technical_chart_enabled %}
+        <li>
+            <a href="{% url 'core:technical_chart' %}">
+                <i class="fa fa-chart-area" aria-hidden="true"></i> Technical Chart
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.technical_analysis_enabled %}
+        <li>
+            <a href="{% url 'core:technical_analysis' %}">
+                <i class="fa fa-memory" aria-hidden="true"></i> Technical Analysis
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.forex_cross_rates_enabled %}
+        <li>
+            <a href="{% url 'core:forex_cross_rates' %}">
+                <i class="fa fa-hand-holding-usd" aria-hidden="true"></i> Forex Cross Rates
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.platformsettingsenabled.forex_heat_map_enabled %}
+        <li>
+            <a href="{% url 'core:forex_heat_map' %}">
+                <i class="fa fa-file-invoice-dollar" aria-hidden="true"></i> Forex Heat Map
+            </a>
+        </li>
+        {% endif %}
+
+        {% if request.user.platformsettingsenabled.fundamentals %}<li class="header">Fundamentals</li>{% endif %}
+        {% if request.user.platformsettingsenabled.quotes_overview_enabled %}
+        <li>
+            <a href="{% url 'core:fundamental_analysis' %}">
+                <i class="fa fa-chart-bar" aria-hidden="true"></i> Quote Overview
+            </a>
+        </li>
+        {% endif %}
+
         <li class="header">Miscellaneous</li>
         <li>
             <a href="{% url 'core:about' %}">
@@ -54,64 +131,6 @@
         <li>
             <a href="{% url 'core:support' %}">
                 <i class="fa fa-info-circle" aria-hidden="true"></i> Support
-            </a>
-        </li>
-
-        <li class="header">Screeners</li>
-        <li>
-            <a href="{% url 'core:crypto_screener' %}">
-                <i class="fab fa-bitcoin" aria-hidden="true"></i> Crypro Screener
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'core:forex_screener' %}">
-                <i class="fa fa-dollar-sign" aria-hidden="true"></i> Forex Screener
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'core:stock_screener' %}">
-                <i class="fas fa-chart-line" aria-hidden="true"></i> Stock Screener
-            </a>
-        </li>
-
-        <li class="header">Analysis</li>
-        <li>
-            <a href="{% url 'core:analysis_market_quotes' %}">
-                <i class="fa fa-funnel-dollar" aria-hidden="true"></i> Market Quotes
-            </a>
-        </li>
-
-        <li>
-            <a href="{% url 'core:symbol_overview' %}">
-                <i class="fa fa-cubes" aria-hidden="true"></i> Symbol Overview
-            </a>
-        </li>
-
-        <li>
-            <a href="{% url 'core:technical_chart' %}">
-                <i class="fa fa-chart-area" aria-hidden="true"></i> Technical Chart
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'core:technical_analysis' %}">
-                <i class="fa fa-memory" aria-hidden="true"></i> Technical Analysis
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'core:forex_cross_rates' %}">
-                <i class="fa fa-hand-holding-usd" aria-hidden="true"></i> Forex Cross Rates
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'core:forex_heat_map' %}">
-                <i class="fa fa-file-invoice-dollar" aria-hidden="true"></i> Forex Heat Map
-            </a>
-        </li>
-
-        <li class="header">Fundamentals</li>
-        <li>
-            <a href="{% url 'core:fundamental_analysis' %}">
-                <i class="fa fa-chart-bar" aria-hidden="true"></i> Quote Overview
             </a>
         </li>
     </ul>

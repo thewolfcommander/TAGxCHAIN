@@ -42,6 +42,30 @@ class TradingAccountTransactions(models.Model):
     def __str__(self):
         return f"{str(self.id)}-{str(self.account.user.username)}"
 
+    
+class PlatformSettingsEnabled(models.Model):
+    """
+    Settings enabled for account
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    screeners = models.BooleanField(default=True)
+    analysis = models.BooleanField(default=True)
+    fundamentals = models.BooleanField(default=True)
+    crypto_screener_enabled = models.BooleanField(default=True)
+    forex_screener_enabled = models.BooleanField(default=True)
+    stock_screener_enabled = models.BooleanField(default=True)
+    market_quotes_enabled = models.BooleanField(default=True)
+    symbol_overview_enabled = models.BooleanField(default=True)
+    technical_chart_enabled = models.BooleanField(default=True)
+    technical_analysis_enabled = models.BooleanField(default=True)
+    forex_cross_rates_enabled = models.BooleanField(default=True)
+    forex_heat_map_enabled = models.BooleanField(default=True)
+    quote_overview_enabled = models.BooleanField(default=True)
+    ticker_enabled = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{str(self.id)}-{str(self.user.username)}"
+
 
 def trading_account_receiver(sender, instance, *args, **kwargs):
     instance.real_money = instance.capital_monu_final + instance.capital_sim_final
