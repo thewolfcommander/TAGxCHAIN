@@ -39,7 +39,7 @@
   </head>
 
   <body>
-    {% include 'components/widgets/ticker-tape.html' %}
+    {% if request.user.platformsettingsenabled.ticker_enabled %}{% include 'components/widgets/ticker-tape.html' %}{% endif %}
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-2">
